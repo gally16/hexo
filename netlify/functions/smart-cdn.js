@@ -117,6 +117,11 @@ exports。handler = async function(event, context) {
                   <div class="latency-bar"><div class="latency-fill" id="cdn3-latency"></div></div>
                   <span id="cdn3-time">测量中...</span>
               </div>
+              <div class="cdn-item">
+                  <p>CF Pages:</p> {/* More specific name */}
+                  <div class="latency-bar"><div class="latency-fill" id="cdn4-latency"></div></div>
+                  <span id="cdn4-time">测量中...</span>
+              </div>
               </div>
           <div class="fastest" id="fastest-cdn">
               最快 CDN: 测量中...
@@ -191,9 +196,9 @@ exports。handler = async function(event, context) {
                       'https://hexo-gally.vercel.app',  // Vercel
                       'https://hexo-987.pages.dev'      // CF Pages
                   ];
-                  const cdnNames = ['Cloudflare', 'Netlify', 'Vercel', 'CF Pages'];
-                  const latencyElementIds = ['cdn0-latency', 'cdn1-latency', 'cdn2-latency', 'cdn3-latency'];
-                  const timeElementIds = ['cdn0-time', 'cdn1-time', 'cdn2-time', 'cdn3-time'];
+                  const cdnNames = ['Netlify cdn', 'Cloudflare', 'Netlify', 'Vercel', 'CF Pages'];
+                  const latencyElementIds = ['cdn0-latency', 'cdn1-latency', 'cdn2-latency', 'cdn3-latency', 'cdn4-latency'];
+                  const timeElementIds = ['cdn0-time', 'cdn1-time', 'cdn2-time', 'cdn3-time', 'cdn4-time'];
 
                   const results = await Promise.all(
                       cdnUrls.map((url, index) => testLatency(url, latencyElementIds[index], timeElementIds[index]))
