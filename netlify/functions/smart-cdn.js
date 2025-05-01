@@ -1,6 +1,6 @@
 // netlify/functions/smart-cdn.js
 
-exports.handler = async function(event, context) {
+exports。handler = async function(event, context) {
 
   // HTML 内容基本保持不变
   const htmlContent = `
@@ -185,12 +185,13 @@ exports.handler = async function(event, context) {
 
               async function measureAllLatencies() {
                   const cdnUrls = [
-                      'https://hexo.gally.ddns-ip.net', // CF BGP
+                      'https://hexocdn.netlify.app', // Netlify cdn
+                      'https://hexo.gally.ddns-ip.net', // Cloudflare
                       'https://hexo-gally.netlify.app', // Netlify
                       'https://hexo-gally.vercel.app',  // Vercel
                       'https://hexo-987.pages.dev'      // CF Pages
                   ];
-                  const cdnNames = ['CF BGP', 'Netlify', 'Vercel', 'CF Pages'];
+                  const cdnNames = ['Cloudflare', 'Netlify', 'Vercel', 'CF Pages'];
                   const latencyElementIds = ['cdn0-latency', 'cdn1-latency', 'cdn2-latency', 'cdn3-latency'];
                   const timeElementIds = ['cdn0-time', 'cdn1-time', 'cdn2-time', 'cdn3-time'];
 
