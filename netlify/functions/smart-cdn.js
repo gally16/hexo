@@ -1,6 +1,6 @@
 // netlify/functions/smart-cdn.js
 
-exports。handler = async function(event, context) {
+exports.handler = async function(event, context) {
 
   // HTML 内容基本保持不变
   const htmlContent = `
@@ -118,7 +118,7 @@ exports。handler = async function(event, context) {
                   <span id="cdn3-time">测量中...</span>
               </div>
               <div class="cdn-item">
-                  <p>CF Pages:</p> {/* More specific name */}
+                  <p>Netlify CDN:</p> {/* New CDN entry */}
                   <div class="latency-bar"><div class="latency-fill" id="cdn4-latency"></div></div>
                   <span id="cdn4-time">测量中...</span>
               </div>
@@ -190,15 +190,15 @@ exports。handler = async function(event, context) {
 
               async function measureAllLatencies() {
                   const cdnUrls = [
-                      'https://hexocdn.netlify.app', // Netlify cdn
-                      'https://hexo.gally.ddns-ip.net', // Cloudflare
+                      'https://hexo.gally.ddns-ip.net', // CF BGP
                       'https://hexo-gally.netlify.app', // Netlify
                       'https://hexo-gally.vercel.app',  // Vercel
-                      'https://hexo-987.pages.dev'      // CF Pages
+                      'https://hexo-987.pages.dev',      // CF Pages
+                      'https://hexocdn.netlify.app'      // Netlify CDN (New)
                   ];
-                  const cdnNames = ['Netlify cdn', 'Cloudflare', 'Netlify', 'Vercel', 'CF Pages'];
-                  const latencyElementIds = ['cdn0-latency', 'cdn1-latency', 'cdn2-latency', 'cdn3-latency', 'cdn4-latency'];
-                  const timeElementIds = ['cdn0-time', 'cdn1-time', 'cdn2-time', 'cdn3-time', 'cdn4-time'];
+                  const cdnNames = ['CF BGP', 'Netlify', 'Vercel', 'CF Pages', 'Netlify CDN']; // Added new name
+                  const latencyElementIds = ['cdn0-latency', 'cdn1-latency', 'cdn2-latency', 'cdn3-latency', 'cdn4-latency']; // Added new latency ID
+                  const timeElementIds = ['cdn0-time', 'cdn1-time', 'cdn2-time', 'cdn3-time', 'cdn4-time']; // Added new time ID
 
                   const results = await Promise.all(
                       cdnUrls.map((url, index) => testLatency(url, latencyElementIds[index], timeElementIds[index]))
