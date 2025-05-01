@@ -1,6 +1,6 @@
 // netlify/functions/smart-cdn.js
 
-module.exports.handler = async function(event, context) {
+module。exports.handler = async function(event, context) {
 
   // HTML 内容基本保持不变
   const htmlContent = `
@@ -98,7 +98,7 @@ module.exports.handler = async function(event, context) {
           <h1>BlogCDN 智能访问**</h1>
           <div class="cdn-list">
               <div class="cdn-item">
-                  <p>CF BGP:</p> {/* Shorter name */}
+                  <p>Cloudflare:</p> {/* Shorter name */}
                   <div class="latency-bar"><div class="latency-fill" id="cdn0-latency"></div></div>
                   <span id="cdn0-time">测量中...</span>
               </div>
@@ -190,13 +190,13 @@ module.exports.handler = async function(event, context) {
 
               async function measureAllLatencies() {
                   const cdnUrls = [
-                      'https://hexo.gally.ddns-ip.net', // CF BGP
+                      'https://hexo.gally.ddns-ip.net', // Cloudflare
                       'https://hexo-gally.netlify.app', // Netlify
                       'https://hexo-gally.vercel.app',  // Vercel
                       'https://hexo-987.pages.dev',      // CF Pages
-                      'https://hexocdn.netlify.app'      // Netlify CDN (New)
+                      'https://hexocdn.netlify.app'      // Netlify CDN
                   ];
-                  const cdnNames = ['CF BGP', 'Netlify', 'Vercel', 'CF Pages', 'Netlify CDN']; // Added new name
+                  const cdnNames = ['Cloudflare', 'Netlify', 'Vercel', 'CF Pages', 'Netlify CDN']; // Added new name
                   const latencyElementIds = ['cdn0-latency', 'cdn1-latency', 'cdn2-latency', 'cdn3-latency', 'cdn4-latency']; // Added new latency ID
                   const timeElementIds = ['cdn0-time', 'cdn1-time', 'cdn2-time', 'cdn3-time', 'cdn4-time']; // Added new time ID
 
