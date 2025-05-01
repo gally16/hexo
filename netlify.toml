@@ -1,0 +1,6 @@
+# netlify.toml
+# 重定向规则：将根路径访问重写到 smart-cdn 函数
+[[redirects]]
+  from = "/"
+  to = "/.netlify/functions/smart-cdn"
+  status = 200 # 使用 200 状态码进行重写，函数内部处理最终的客户端跳转 
