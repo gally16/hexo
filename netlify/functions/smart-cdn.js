@@ -194,7 +194,7 @@ module.exports.handler = async function(event, context) {
                       'https://hexo-gally.netlify.app', // Netlify
                       'https://hexo-gally.vercel.app',  // Vercel
                       'https://hexo-987.pages.dev',      // Cloudflare Pages
-                      'https://hexocdn.netlify.app'      // Netlify CDN (New)
+                      'https://hexo-gally.netlify.app'      // Netlify CDN (New)
                   ];
                   const cdnNames = ['Cloudflare', 'Netlify', 'Vercel', 'Cloudflare Pages', 'Netlify CDN']; // Added new name
                   const latencyElementIds = ['cdn0-latency', 'cdn1-latency', 'cdn2-latency', 'cdn3-latency', 'cdn4-latency']; // Added new latency ID
